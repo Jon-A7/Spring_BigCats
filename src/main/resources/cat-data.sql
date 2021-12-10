@@ -1,4 +1,4 @@
-INSERT INTO `bigcats` (
+INSERT INTO `big_cats` (
 	`species`, 
 	`height`, 
 	`weight` 

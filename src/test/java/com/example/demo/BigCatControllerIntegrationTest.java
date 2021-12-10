@@ -78,4 +78,23 @@ public class BigCatControllerIntegrationTest {
 
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+	@Test
+	void testGetById() throws Exception {
+		
+		
+	}
+	@Test
+	void testGetBySpecies() throws Exception {
+		
+	}
+	@Test
+	void testReplace() throws Exception {
+		
+	}
+	
+	@Test
+	void testRemove() throws Exception {
+		
+	}
 }
