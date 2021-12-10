@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -81,9 +82,17 @@ public class BigCatControllerIntegrationTest {
 	
 	@Test
 	void testGetById() throws Exception {
+		BigCat testCat = new BigCat("Panther", 200, 300);
+		String testCatAsJSON = this.mapper.writeValueAsString(testCat);
 		
+		RequestBuilder req=get("/get/1").contentType(MediaType.APPLICATION_JSON).content(testCatAsJSON);
+		
+		ResultMatcher checkStatus=status().is(201);
+		ResultMatcher checkBody =content().json(testCatAsJSON);
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 		
 	}
+	
 	@Test
 	void testGetBySpecies() throws Exception {
 		
