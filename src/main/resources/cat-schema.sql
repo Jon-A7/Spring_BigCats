@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS `bigCats` CASCADE;
+
+CREATE TABLE `bigCats` (
+	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+	`species` VARCHAR(255),  
+	`height` INTEGER,
+	`weight` INTEGER
+);
